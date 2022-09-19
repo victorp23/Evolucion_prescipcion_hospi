@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    table {
+        table-layout: fixed;
+        width: 250px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        width: 100px;
+        word-wrap: break-word;
+    }
+</style>
+
+<div class="container">
+    
+        <div class="form-group row">
+            <table class="table table-bordered" border="1" bordercolor="black">
+                <thead style="display: table-header-group">
+                    <tr>
+                        <th class="col-xs-3" style="text-align: center; font-size: 9px; font-family:Arial">ESTABLECIMIENTO SOLICITANTE</th>
+                        <th class="col-xs-3" style="text-align: center; font-size: 9px; font-family: Arial">NOMBRES</th>
+                        <th class="col-xs-3" style="text-align: center; font-size: 9px; font-family: Arial">APELLIDOS</th>
+                        <th class="col-xs-1" style="text-align: center; font-size: 9px; font-family: Arial">SEXO</th>
+                        <th class="col-xs-1" style="text-align: center; font-size: 9px; font-family: Arial">EDAD</th>
+                        <th class="col-xs-3" style="text-align: center; font-size: 9px; font-family: Arial">Nro HISTORIA CLINICA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for empresa1 in empresa %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{empresa1.empresa}}</td>
+                        {% endfor %}
+
+                        {% for nombrep1 in nombrep %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{nombrep1.nombre}}</td>
+                        {% endfor %}
+
+                        {% for apellidop1 in apellidop %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{apellidop1.apellido}}</td>
+                        {% endfor %}
+
+                        {% for sexo1 in sexo %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{sexo1.sexo}}</td>
+                        {% endfor %}
+
+                        {% for edad1 in edad %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{edad1.edad}}</td>
+                        {% endfor %}
+
+                        {% for hc1 in hc %}
+                        <td class="col-xs-2" style="text-align: center; font-size: 9px; font-family: Arial">{{hc1.hc}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        
+    </div>
+    <p style="text-align: right; font-size: 9px; font-family: Arial">
+        REGISTRAR EN ROJO LA ADMINISTRACION DE FARMACOS Y OTROS
+        PRODUCTOS (ENFERMERIA)
+    </p>
+    <div class="form-group row">
+        <table class="table table-bordered" border="1" bordercolor="black">
+
+            <tr>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">1 EVOLUCION</th>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">&nbsp;&nbsp;</th>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">2 PRESCRIPCIONES</th>
+            </tr>
+            <tr>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">FECHA Y HORA</th>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">NOTA DE INGRESO</th>
+                <th style="text-align: center; font-size: 9px; font-family: Arial">
+
+                    FARMACOTERAPIA E INDICACIONES
+                    (PARA ENFERMERIA Y OTRO PERSONAL)
+
+                </th>
+            </tr>
+
+
+            <tr>
+                <td style="font-size: 9px; font-family: Arial">
+                    {% for fecha1 in fecha %}
+                    {{fecha1.fecha}}
+                    {% endfor %}
+                </td>
+
+                <td style="font-size: 9px; font-family: Arial">
+                    {% for nota1 in nota %}
+                    {{nota1.nota}}
+                    {% endfor %}
+
+
+                </td>
+
+                <td style="font-size: 9px; font-family: Arial">
+
+                    {% for pres1 in pres %}
+                    {{pres1.pres}}
+                    {% endfor %}
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div style="font-size: 9px; font-family: Arial"><span style="float: right; font-weight: bold; font-size: 9px; font-family: Arial">EVOLUCION Y PRESCRIPCIONES ( 1 )</span>SNS-MSP / HCU-form.005 / 2008</div>
+
+</div>
+
+{% endblock %}
